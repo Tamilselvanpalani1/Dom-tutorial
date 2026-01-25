@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <!-- Changing the h1 text via the dom -->
+    <div>
+        <h1> Learn DOM</h1>
+    </div>
+</body>
+</html>
+<script>
+    console.log(document); //it will show as a tag and elements
+    console.dir(document); //it will disolay as a dir
+    console.log(document.domain);
+    console.log(document.body);
+    console.log(document.head);
+    console.log(document.images);
+    
+    // Changing the h1 text via the dom
+    setInterval( () => {
+        let text = document.body.children[0].children[0].innerText = "Learn DOM - Tamil"
+        console.dir(text)
+    }, 3000)
+
+</script>
