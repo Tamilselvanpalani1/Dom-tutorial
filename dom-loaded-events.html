@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Loaded Events</title>
+    <script>
+    //document -> DOMContentLoaded
+    //DOMContentLoaded is an event that fires when the HTML is fully loaded and parsed, but before images, videos, and other files finish loading.
+    document.addEventListener("DOMContentLoaded", () => {
+        // alert("Dom content loaded")
+        const myApp = document.getElementById('app');
+        const heading = myApp.children[0]
+        const image = myApp.children[1]
+
+
+        console.log(`Image size: ${image.offsetHeight} * ${image.offsetWidth}`);
+    })
+
+    //window -> Load
+    //load is an event that fires when the entire page is fully loaded — including: HTML, CSS, Images, Videos, Fonts, External files
+    window.addEventListener("load", () => {
+        // alert("Dom content loaded")
+        const myApp = document.getElementById('app');
+        const heading = myApp.children[0]
+        const image = myApp.children[1]
+        console.log(`Load Image size: ${image.offsetHeight} * ${image.offsetWidth}`);
+    })
+
+    //unload is an event in JavaScript that runs when a user leaves a webpage — like when they: Close the browser tab, Refresh the page, Click another link, Type a new URL
+    window.addEventListener("unload", function () {
+        console.log("User left the page");
+    });
+
+    //before unload
+    // beforeunload is an event that fires when the user is about to leave the current page.
+    // This happens when the user: Refreshes the page, Closes the browser tab, Clicks another link, Types a new URL
+    // It is mainly used to warn users if they have unsaved work.
+    window.addEventListener("beforeunload", function () {
+        console.log("User left the page, It is mainly used to warn users if they have unsaved work");
+    });   
+</script>
+</head>
+<body>
+    <div id="app">
+        <h1>Hello World!</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNubLmqdOK9pZWU-2IiD20cuSIdUUDi9-NvQ&s" alt="">
+    </div>
+</body>
+</html>
+

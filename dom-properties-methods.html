@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Properties & Methods</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    //Object Example
+    const person = {
+       //Properties
+       name: "Tamilselvan",
+       place: "Vellore" ,
+       //methods
+       greetUser() {
+        return "Hello my name is " + this.name
+       }
+    }
+
+    //update the value
+    // person.name = "selvan"
+
+
+
+    //innerHTML
+    //innerHTML is used to get or set the HTML content inside an element.
+
+
+    //innerText
+    // innerText is used to get or set only the text inside an element.
+    
+    const personName = prompt("Enter Your name")
+    const personPlace = prompt("Enter your place")
+
+    person.name = personName
+    person.place = personPlace
+
+    const personOne = person.greetUser()
+    document.body.innerHTML = `Hello, ${personOne}`
+</script>

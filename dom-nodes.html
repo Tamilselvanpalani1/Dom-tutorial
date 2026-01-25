@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Nodes</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+    // let lang = document.all[0].attributes[0]
+    // lang.value = "tamil"
+    // console.dir(lang);
+
+    //html node ref
+    console.dir(document.documentElement.lang);
+    console.log(document.head);
+    console.log(document.body);
+
+    console.log(document.body.constructor.name); //HTMLBodyElement
+    
+    //instanceof meaning -> is it coming from there ?
+    console.log(document.body instanceof HTMLBodyElement); //yes -> true
+    console.log(document.body instanceof HTMLElement); //yes -> true
+    console.log(document.body instanceof Element); //yes -> true
+    console.log(document.body instanceof Node); //yes -> true
+    console.log(document.body instanceof EventTarget); //yes -> true
+
+    console.log(document.head instanceof HTMLBodyElement); //No -> false
+
+    
+    
+    
+    
+</script>
+<!-- 
+DOM Node Example
+----------------
+//Node can be anything -> text, element, attribute
+
+#document
+location: Location {ancestorOrigins: DOMStringList, href: 'http://127.0.0.1:5500/dom-nodes.html', origin: 'http://127.0.0.1:5500', protocol: 'http:', host: '127.0.0.1:5500', …}
+URL: "http://127.0.0.1:5500/dom-nodes.html"
+activeElement: body
+activeViewTransition: null
+adoptedStyleSheets: Proxy(Array) {} 
+alinkColor: ""
+all: HTMLAllCollection(11) [html, head, meta, meta, title, body, script, script, div#akaSlwaflWjXSUW, div, script, viewport: meta, akaSlwaflWjXSUW: div#akaSlwaflWjXSUW]
+anchors: HTMLCollection []
+applets: HTMLCollection []
+baseURI: "http://127.0.0.1:5500/dom-nodes.html"
+bgColor: ""
+body: body
+-->
