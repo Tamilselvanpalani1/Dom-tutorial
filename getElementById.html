@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="input-box" value="Biryani">
+        <button id="save-btn">Save</button>
+        <p id="response"></p>
+    </form>
+</body>
+</html>
+<script>
+    const inputBox = document.getElementById("input-box");
+    const saveBtn = document.getElementById("save-btn");
+    const response = document.getElementById("response");
+
+    saveBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        response.innerText = inputBox.value;
+    })
+    
+</script>

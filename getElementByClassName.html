@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementByClassName</title>
+    <style>
+        .food-item{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <input type="text" id="input-box" value="Biryani">
+        <button id="save-btn">Save</button>
+        <p id="response"></p>
+    </main>
+
+    <div>
+        <ul id="ul-list">
+            <li class="food-item">Sambar</li>
+            <li class="food-item">Idly</li>
+            <li class="food-item">Rice</li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    const inputBox = document.getElementById("input-box");
+    const saveBtn = document.getElementById("save-btn");
+    const response = document.getElementById("response");
+    const ulList = document.getElementById("ul-list");
+
+    //getElementsByClassName -> used to select multiple elements
+    const foodItems = document.getElementsByClassName("food-item");
+    console.log("Food items: ", foodItems);
+    
+    
+    console.log(ulList.innerHTML);
+    
+    saveBtn.addEventListener("click", () => {
+        ulList.innerHTML += `<li class="food-item">${inputBox.value}</li>`
+    })
+</script>
