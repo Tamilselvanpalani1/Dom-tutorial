@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting Dom Elements</title>
+</head>
+<body>
+    <ul id="food-container">
+        <li>Idly</li>
+        <li>Sambar</li>
+        <li>Vada</li>
+    </ul>
+</body>
+</html>
+<script>
+    const foods = document.getElementById("food-container");
+
+    const li = document.createElement("li");
+    li.textContent = 'Maggi';
+    li.className = "food-item";
+    foods.append(li); //append() => inserting as a last child for the parent container
+    foods.prepend(li) //prepend() => inserting as a first child for the parent container
+    foods.before(li) //before() => insert an element before the current element, outside of its container
+    foods.after(li) //after() => insert an element after the current element, outside of its container
+    
+</script>

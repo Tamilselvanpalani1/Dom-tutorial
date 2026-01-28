@@ -6,6 +6,37 @@
     <title>Document Fragment</title>
 </head>
 <body>
-    
+    <ul id="food-container">
+        <li>Idly</li>
+        <li>Sambar</li>
+        <li>Vada</li>
+    </ul>
 </body>
 </html>
+<script>
+    // Normal Way
+    const foods = document.getElementById("food-container");
+    // for(let i=1; i<=1000; i++){
+    //     const li = document.createElement("li");
+    //     li.innerText = `Food item: ${i}`;
+    //     foods.append(li);
+    // }
+
+    //Using documentFragment
+    const fragment = document.createDocumentFragment();
+    for(let i=1; i<=1000; i++){
+        const li = document.createElement("li");
+        li.innerText = `Food item: ${i}`;
+        fragment.append(li); //storing the list into fragment
+    }
+    console.log("Fragment:", fragment);
+    foods.append(fragment); //appending that stored fragment to the foods container
+    
+
+</script>
+<!-- DocumentFragment is a lightweight container used to build DOM elements in memory before adding them to the page — it makes your code faster and cleaner -->
+<!-- What is DocumentFragment?
+A temporary DOM container
+Not part of the actual DOM
+Changes inside it don’t cause reflow/repaint
+When appended, only its children move into the DOM (the fragment itself disappears) -->
