@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom QuerySelector & QuerySelectorAll</title>
+</head>
+<body>
+    <div>Hi</div>
+    <div>Hello!</div>
+    <ul>
+        <li>child 1</li>
+        <li>child 2</li>
+        <li>child 3</li>
+    </ul>
+</html>
+
+<script>
+    //It finds the first matching element in the document.
+    const div = document.querySelector("li")
+    console.log("queryselector default",div);
+    // o/p-> <div>hi</div>
+
+    const li = document.querySelector("li:last-child")
+    console.log("queryselector last child", div);
+
+    //querySelectorAll()
+    const lists = document.querySelectorAll("li")
+    console.log("querySelectorAll lIsts: ", lists);
+    
+</script>
+
+<!-- querySelectorAll() in JavaScript is used to select multiple elements from the DOM using CSS selectors.
+
+Syntax
+document.querySelectorAll("selector")
+
+What it returns
+---------------
+A NodeList (looks like an array)
+You can loop using forEach()

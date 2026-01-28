@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementByTagName</title>
+</head>
+<body>
+    <div>
+        <h1>Hello, Selecting by Tagname</h1>
+        <ul>
+            <li>Food 1</li>
+            <li>Food 2</li>
+            <li>Food 3</li>
+        </ul>
+            <div></div>
+            <div></div>
+    </div>
+</body>
+</html>
+<script>
+    const liCount = document.getElementsByTagName("li")
+    console.log("List count: ", liCount.length);
+    document.write(liCount)
+
+    //It will select all elements which we are selecting on the page
+    const div = document.getElementsByTagName("div")
+    console.log(div.length) //3
+</script>
