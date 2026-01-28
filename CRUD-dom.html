@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating DOM Elements</title>
+    <style>
+        .alert{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="inputBox" value="briyani"> 
+    <button id="btn">Save</button>
+
+    <ul>
+        <li>Food 1</li>
+        <li>Food 2</li>
+        <li>Food 3</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    //CRUD operations 
+    //createTextNode -> used to set a text value to particular element.(Best for performance)
+    //document.createTextNode("Hello World!")
+    //textContent -> used to set a text value to particular element.
+    // div.textContent = input.value
+    //innerText -> used to set a text value to particular element.
+    //li.innerText = input.value
+
+    const input = document.getElementById("inputBox")
+    const btn = document.getElementById("btn")    
+    const ul = document.getElementsByTagName("ul")[0]
+    
+
+    btn.addEventListener("click", () => {
+        //To create a element -> createElement 
+        const li = document.createElement("li")
+        const text = document.createTextNode(input.value)
+        //append
+        li.append(text)
+        ul.append(li)
+        const alert = document.createElement("p");
+        alert.className = "alert";
+        const alertText = document.createTextNode("Food is updated!");
+        alert.append(alertText)
+        document.body.prepend(alert)
+    })
+
+    //const main = document.getElementById("main")
+    //Append
+    //It will add the element in the last
+    //main.append(div)
+    
+    //Prepend
+    //It will add the element in the first
+    //main.prepend(div)
+
+    //Assigning className
+    //div.className = "value"
+
+    // -> How to get/set contents via DOM
+    // textContent -> it will get user visible text and formatting as well, we can use it for Nodes, Elements.
+    //ex -> <div>
+
+    //    hello.    world!...
+
+    //</div>
+    // o/p ->
+
+    //    hello.    world!...
+
+    
+
+    // innerText -> it will get only the user visible text, we can use it for Elements
+    //ex -> <div>
+
+    //    hello.    world!...
+
+    //</div>
+    //o/p -> hello. world!...
+    // innerHTML
+
+    //createElement() vs innerHTML
+    // if we use innerHTML it will be in string datatype, it will break and we can't use style via the DOM
+    // if we use createElement it will be in Object, does not break.
+</script>
+
