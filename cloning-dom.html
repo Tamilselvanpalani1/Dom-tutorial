@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloning DOM Element</title>
+</head>
+<body>
+    <ul id="food-container">
+        <li>Idly</li>
+        <li>Sambar</li>
+        <li>Vada</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    const foods = document.getElementById("food-container");
+    //cloneNode -> used to clone the dome element
+    //cloneNode(false) -> only clones the top element
+    const clonedDataDefault = foods.cloneNode() //default value -> false
+    console.log("Cloned Data Default: ", clonedDataDefault);
+
+    //cloneNode(true) -> used to clone all element, top element with the children
+    const clonedDateTrue = foods.cloneNode(true)
+    console.log("Cloned Data True: ", clonedDateTrue);
+    
+</script>

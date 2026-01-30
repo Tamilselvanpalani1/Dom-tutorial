@@ -16,12 +16,37 @@
 <script>
     const foods = document.getElementById("food-container");
 
-    const li = document.createElement("li");
-    li.textContent = 'Maggi';
-    li.className = "food-item";
-    foods.append(li); //append() => inserting as a last child for the parent container
-    foods.prepend(li) //prepend() => inserting as a first child for the parent container
-    foods.before(li) //before() => insert an element before the current element, outside of its container
-    foods.after(li) //after() => insert an element after the current element, outside of its container
+    // const li = document.createElement("li");
+    // li.textContent = 'Maggi';
+    // li.className = "food-item";
+    // foods.append(li); //append() => inserting as a last child for the parent container
+    // foods.prepend(li) //prepend() => inserting as a first child for the parent container
+    // foods.before(li) //before() => insert an element before the current element, outside of its container
+    // foods.after(li) //after() => insert an element after the current element, outside of its container
     
+
+    //Inserting dom as String Template
+    //1) insertAdjacentHTML('position', '<h1>text</h1>')
+    // position -> afterbegin, afterend, beforebegin, beforeend
+    // Position	Where HTML is inserted
+
+    // beforebegin	Before the element
+    foods.insertAdjacentHTML('beforebegin', '<h1>Before the element<h1>')
+    // afterend	After the element
+    foods.insertAdjacentHTML('afterend', '<h1>After the element</h1>')
+
+    // afterbegin	Inside the element, at the beginning
+    foods.insertAdjacentHTML('afterbegin', '<h5>Inside the element, at the beginning</h5>')
+    
+    // beforeend	Inside the element, at the end
+    foods.insertAdjacentHTML('beforeend', '<h5>Inside the element, at the end</h5>')
+
+    //insertAdjacentText('position','text') -> it will display as text, even html tags also visible in the UI
+    foods.insertAdjacentText('beforebegin', '<h1>Before the element<h1>')
+
+    //insertAdjacentElement('position', tagName)
+    const li = document.createElement("li");
+    li.textContent = 'Maggi - Using insertAdjacentElement';
+    li.className = "food-item";
+    foods.insertAdjacentElement('beforeend', li);
 </script>

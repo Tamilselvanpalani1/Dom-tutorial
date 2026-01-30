@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replacing DOM Elements</title>
+</head>
+<body>
+    <ul id="food-container">
+        <li>Idly</li>
+        <li>Sambar</li>
+        <li>Vada</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    //we are going to replace Idly to Biryani
+    const foods = document.getElementById("food-container");
+    const idly = document.querySelector("#food-container :first-child");
+    console.log(idly);
+    const newLi = document.createElement('li');
+    newLi.textContent = "Biryani";
+    //replacing -> we can replace only one element
+    idly.replaceWith(newLi);
+
+    //replaceChildren() -> we can replace existing elements with multiple elements
+    const maggi = document.createElement("li");
+    maggi.textContent = "Maggi"
+
+    const Noodles = document.createElement("li");
+    Noodles.textContent = "Noodles"
+    foods.replaceChildren(maggi, Noodles)
+</script>

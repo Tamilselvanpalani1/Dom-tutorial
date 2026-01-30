@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removing DOM ELement</title>
+    <style>
+        .food-item{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="inputBox">
+    <button id="btn">Save</button>
+    <ul id="food-container">
+        <div class="food-item" onclick="removeItem(event)">
+            <li>Idly</li> 
+            <button>X</button>
+        </div>
+        <div class="food-item" onclick="removeItem(event)">
+            <li>sambar</li> 
+            <button>X</button>
+        </div>
+        <div class="food-item" onclick="removeItem(event)">
+            <li>vada</li> 
+            <button>X</button>
+        </div>
+    </ul>
+</body>
+</html>
+
+<script>
+        const foods = document.getElementById("food-container");
+        const inputBox = document.getElementById("inputBox")
+        const btn = document.getElementById("btn");
+
+        btn.addEventListener("click", () => {
+            const div = document.createElement("div");
+            div.className = "food-item";
+            div.setAttribute("onclick", "removeItem(event)")
+
+            const list = document.createElement("li");
+            list.innerText = inputBox.value;
+
+            const removeBtn = document.createElement("button");
+            removeBtn.innerText="X";
+
+            div.append(list, removeBtn); //appending newly created list and btn to the Div.
+            foods.append(div) // appending that newly created div to the foods container.
+        })
+        function removeItem(event){
+            event.target.parentElement.remove()
+        }
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping Over Elements</title>
+    <style>
+        .food-item{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="inputBox">
+    <button id="btn">Save</button>
+    <ul id="food-container">
+        <div class="food-item" onclick="removeItem(event)">
+            <li>Idly</li> 
+            <button>X</button>
+        </div>
+        <div class="food-item" onclick="removeItem(event)">
+            <li>sambar</li>  
+            <button>X</button>
+        </div>
+        <div class="food-item" onclick="removeItem(event)">
+            <li>vada</li> 
+            <button>X</button>
+        </div>
+    </ul>
+</body>
+</html>
+
+<script>
+    // const foodItems = [
+    //     "Chicken Rice",
+    //     "Biryani",
+    //     "Noodles"
+    // ]
+
+    // for(let i=0; i<=foodItems.length; i++){
+    //     console.log(foodItems[i]);
+    // }
+
+    //method: 1
+    const foodItems = document.querySelectorAll("#food-container li");
+    // console.log(foodItems);
+    mappingFoodItems = []
+    // for(let i=0; i<foodItems.length; i++){
+    //     mappingFoodItems.push(foodItems[i].textContent)
+    // }
+    // console.log("Value got from DOM: ", mappingFoodItems);
+
+    //method: 2
+    foodItems.forEach((item) => {
+        console.log("Value got from DOM: ", item.nodeName);
+    })
+    
+    //method: 3 ->spread opera
+    Array.from(foodItems).forEach((item) => {
+        console.log("Value got from DOM: ", item.textContent);
+    })
+
+    //method: 4 -> spread operator
+    // [...foodItems].forEach((item) => {
+    //     console.log("Value got from DOM: ", item.textContent);
+    // })
+</script>
