@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Child, Parent & Sibling DOM Element</title>
+</head>
+<body>
+    <input type="text" id="inputBox">
+    <button id="btn">Save</button>
+    <ul id="food-container">
+        <div class="food-item" onclick="removeItem(event)">
+            <li>Idly</li> 
+            <button>X</button>
+        </div>
+        <div class="food-item" onclick="removeItem(event)">
+            <li>sambar</li>  
+            <button>X</button>
+        </div>
+        <div class="food-item" onclick="removeItem(event)">
+            <li>vada</li> 
+            <button>X</button>
+        </div>
+    </ul>
+
+    <!-- Sibling Elements -->
+     <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+     </ul>
+</body>
+</html>
+<script>
+    //querySelector -> to find the first matching element(HTMLCollection)
+    const foods = document.querySelector("#food-container");
+    //childresn -> to get all the child elements(HTMLCollection)
+    console.log("Children: ", foods.children);
+    
+    //querySelectorAll -> to find all the matching elements(NodeList)
+    const li = document.querySelectorAll("li");
+    console.log(li);
+
+    console.log("Child Nodes:", foods.childNodes); //gives all the child nodes including text nodes(NodeList)
+    console.log("First child: ", foods.firstChild)//gives the first child node including text nodes
+    console.log("First Element Child: ", foods.firstElementChild)//gives the first child element only
+    console.log("Last child: ", foods.lastChild)//gives the last child node including text nodes
+    console.log("Last Element Child: ", foods.lastElementChild)//gives the last child
+
+    //Finding parent element
+    const parent = foods.parentElement;
+    console.log("Parent Element: ", parent); //gives the parent element
+    console.log("Parent Node: ", foods.parentNode); //gives the parent node -> includes text nodes as well
+
+    //closest() -> to find the nearest parent element based on the selector
+    const closestDiv = foods.closest("body");
+    console.log("Closest Div: ", closestDiv); //null -> because there is no div parent for the foods ul element
+
+    //Finding Sibling Elements
+    const item = document.querySelector("ul:last-of-type li"); //selecting first li of last ul
+    console.log("First Li Sibling: ", item);
+    console.log("Next Sibling: ", item.nextSibling); //gives next sibling node including text nodes
+    console.log("Next Element Sibling: ", item.nextElementSibling.innerText); //gives next sibling element only
+    console.log("Previous Sibling: ", item.previousSibling); //gives previous sibling node including text nodes
+    console.log("Previous Element Sibling: ", item.previousElementSibling); //gives previous sibling element only
+
+</script>
