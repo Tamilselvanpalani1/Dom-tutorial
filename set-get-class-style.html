@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting and Getting class styles</title>
+</head>
+<body>
+     <button>Submit</button>
+</body>
+</html>
+<script>
+    const btn = document.querySelector("button");
+
+    //Adding class using className
+    // btn.className = "btn-primary btn-large";
+    // btn.className += " active"; //adding additional class
+
+    //Adding class using classList
+    // btn.classList.add("btn-primary");
+    // btn.classList.add("btn-large");
+    // btn.classList.add("active");
+
+    //replacing class using classList
+    //btn.classList.replace("btn-large", "btn-small");
+
+    //Removing class using classList
+    //btn.classList.remove("active");
+
+    //Toggling class using classList
+    //btn.classList.toggle("active"); //adds if not present, removes if present
+
+    //Checking if class is present
+    // if(btn.classList.contains("btn-primary")) {
+    //     console.log("btn-primary class is present");
+    // } else {
+    //     console.log("btn-primary class is not present");
+    // }
+
+    // //Getting all classes
+    // console.log("All Classes: ", btn.classList.value);
+</script>

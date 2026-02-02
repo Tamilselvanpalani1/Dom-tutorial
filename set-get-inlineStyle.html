@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting and getting inline styles</title>
+</head>
+<body>
+    <button>Submit</button>
+</body>
+</html>
+
+<script>
+    const btn = document.querySelector("button");
+    //Option: 1
+    //btn.setAttribute("style", "background-color: green; color: white; padding: 10px 20px; border: none;"); //setting inline style using setAttribute
+    
+    //Option: 2
+    // btn.style.backgroundColor = "blue"; //setting inline style
+    // btn.style.color = "white";
+    // btn.style.padding = "10px 20px";
+    // btn.style.border = "none";
+
+    //Option: 3
+    btn.style.cssText = "background-color: red; color: white; padding: 10px 20px; border: none;"; //setting multiple inline styles
+    btn.style.fontSize += "16px"; //setting additional style
+
+
+    //Getting inline styles
+        console.log("Background Color: ", btn.style.backgroundColor);
+        console.log("Color: ", btn.style.color);
+        console.log("Padding: ", btn.style.padding);
+        console.log("Border: ", btn.style.border);
+        console.log("Font Size: ", btn.style.fontSize);
+
+    //getComputedStyle
+    const computedStyles = window.getComputedStyle(btn);
+    console.log("Computed: ", computedStyles);
+</script>

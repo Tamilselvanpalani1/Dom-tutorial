@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Properties and HTML Attributes</title>
+</head>
+<body>
+    <div class="input-name-container">
+        <input type="text" id="nameId" placeholder="Enter your name" name="fullName" isAlive="true" place="chennai">
+    </div>
+</body>
+</html>
+
+<script>
+     const inputElement = document.querySelector("#nameId");
+     inputElement.value = "John Doe"; //sets the value of the input box
+     console.log("Input Value: ", inputElement.value); //gets the value of the input
+     inputElement.setAttribute("maxlength", "20"); //sets the maxlength attribute
+     console.log("Max Length: ", inputElement.getAttribute("maxlength")); //gets the maxlength
+
+     //getting custom attributes
+     console.log("isAlive Attribute: ", inputElement.getAttribute("isAlive"));
+        console.log("place Attribute: ", inputElement.getAttribute("place"));
+
+    //getting attributes using index value - key an value/properties
+    console.log(inputElement.attributes);
+    console.log("First Attribute: ", inputElement.attributes[0]); //first attribute
+    console.log("Second Attribute: ", inputElement.attributes[1]); //second attribute
+    console.log("Third Attribute: ", inputElement.attributes[2]); //third attribute
+    console.log("Fourth Attribute: ", inputElement.attributes[3]); //fourth attribute
+    console.log("Value by Index: ", inputElement.attributes[4].value); //fifth attribute
+    console.log("Value by property name: ", inputElement.attributes.place.value); //fifth attribute
+    console.log("Placeholder Value using key: ", inputElement.attributes["placeholder"].value);
+    
+    //Methods
+    inputElement.removeAttribute("isAlive"); //removes existing attribute
+    inputElement.hasAttribute("place") 
+        ? console.log("place attribute is present") 
+        : console.log("place attribute is not present");
+
+    //style attribute
+    console.log("Style: ", inputElement.style);
+
+    //dataset attribute - data-*
+    inputElement.setAttribute("data-user-id", "12345");
+    console.log("Dataset: ", inputElement.dataset);
+
+    for(let i= 0; i<inputElement.attributes.length; i++) {
+        console.log("Attributes of input Element: ", inputElement.attributes[i]);
+        
+    }
+</script>

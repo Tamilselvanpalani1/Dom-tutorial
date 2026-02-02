@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Animation</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello!</h1>
+    </div>
+    <button>Hide</button>
+</body>
+</html>
+<style>
+    .container {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid blue;
+        margin: 50px auto;
+        transition: all 1s;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: darkblue;
+    }
+    button{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    .animation{
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+</style>
+
+<script>
+    const container = document.getElementsByClassName("container")[0];    
+    const btn = document.getElementsByTagName("button")[0];
+    btn.addEventListener("click", () => {
+        container.classList.toggle("animation")
+        const hideFlag = container.classList.contains("hide");
+        hideFlag ? btn.innerText = "Show" : btn.innerText = "Hide";
+    })
+</script>
