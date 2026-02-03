@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding and Removing Event Listeners and Event Object</title>
+</head>
+<body>
+    <p>Hello!</p>
+</body>
+</html>
+<script>
+    //addEventListener
+    //click
+    //dblclick
+// alert("Hello World!")
+
+    // //removing eventListeners
+    // p.removeEventListener("click", () => {
+    //     console.log("Removed Event Listeners");
+    // }) //if we use arrow function for removing, it won't remove, because arrow function will treat as a different function.
+
+
+//Good Practice
+    const p = document.getElementsByTagName("p")[0];
+    const handler = () => {
+        alert("Hello World!");
+    }
+
+    p.addEventListener("click", handler, {once: true}) //it used to allow the function to run only once
+    // p.removeEventListener("click", handler)
+</script>

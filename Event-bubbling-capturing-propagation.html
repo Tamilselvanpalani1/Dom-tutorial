@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Event Bubbling, Capturing & Propagation</title>
+</head>
+<style>
+    form{
+        height: 100px;
+        width: 200px;
+        border: 2px solid red;
+        margin: 0 auto;
+    }
+    div{
+        height: 50px;
+        width: 150px;
+        border: 2px solid yellow;
+        margin: 0 auto;
+    }
+    p{
+        height: 25px;
+        width: 100px;
+        border: 2px solid green;
+        margin: 0 auto;
+    }
+</style>
+<body>
+    <!-- <p>Hello</p> -->
+
+    <form>
+        Form
+        <div>
+            Div
+            <p>P</p>
+        </div>
+    </form>
+</body>
+</html>
+<script>
+    const p = document.getElementsByTagName("p")[0];
+    const div = document.getElementsByTagName("div")[0];
+    const formEl = document.getElementsByTagName("form")[0];
+    console.log(p);
+    formEl.addEventListener("click", (event) => {
+        alert("form")  
+    })
+    div.addEventListener("click", (event) => {
+        alert("div")  
+        // event.stopPropagation() 
+        // event.stopImmediatePropagation() 
+    })
+    div.addEventListener("click", (event) => {
+        alert("this is another div")
+    })
+    p.addEventListener("click", (event) => {
+        alert("p")  
+    })
+    // p.addEventListener("click", () => {
+    //     console.log("event: ", event.target)
+    // })
+    //bubbling - target -> top
+    //capturing - top -> target
+    //path -> window,document, html, body, element
+
+    //stopPropagation()
+    //Stops the event from moving further (no bubbling / capturing).
+    //It will run all other events on the same element 
+
+    //stpImmediatePropagation()
+    //event.stopImmediatePropagation() does two things:
+    //Stops the event from bubbling or capturing any further - removes all active listeners from that element
+    //Stops all other event listeners on the same element from running
+
+    for (let elem of document.querySelectorAll("form, form *")){
+        //To catch an event on the capturing phase
+        elem.addEventListener("click", () => {
+            console.log(`capturing phase: ${elem.tagName}`);
+        }, {capture: true}) //by default false
+        
+        //To catch an event on the bubbling phase
+        elem.addEventListener("click", () => {
+            console.log(`Bubbling phase: ${elem.tagName}`);
+        })
+    }
+
+</script>
