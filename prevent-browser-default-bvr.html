@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preventing Browser Default Behaviour</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="inputBox">
+        <input type="checkbox" name="" id="checkbox">
+        <label for="checkbox">Terms and conditions</label>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
+<script>
+    // This script prevents the browser's default behavior for the 'contextmenu' event
+    //onclick="return false;" is used to prevent the default action of right-clicking
+    //event.preventDefault() is used to prevent the default action of the event
+    const inputBoxEl = document.getElementById('inputBox');
+    const checkBox = document.getElementById('checkbox');
+    const formEl = document.getElementsByTagName('form')[0];
+    formEl.addEventListener("submit", (event) => {
+        // event.preventDefault();
+        console.log(inputBoxEl.value);
+        console.log(checkBox.checked);
+        alert("Form submission prevented!");
+        event.defaultPrevented; // true -> confirms that the default action has been prevented
+    }, {passive: true}); // passive: true indicates that the event listener will never call preventDefault()
+    // we have to use either passive: false or not use passive at all to be able to call preventDefault()
+</script>
+
+
+
