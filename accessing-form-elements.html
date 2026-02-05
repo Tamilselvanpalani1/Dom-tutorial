@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessing Form and  Elements</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form name="feedback">
+        <input type="text" name="fullName">
+        <div class="radio-btn">
+            <input type="radio" name="type" id="html" value="html">
+            <label for="html">HTML</label>
+
+            <input type="radio" name="type" id="css" value="css">
+            <label for="css">CSS</label>
+
+            <input type="radio" name="type" id="javascript" value="javascript">
+            <label for="javascript">JavaScript</label>
+        </div>
+        <input type="email" name="email" id="">
+        <textarea name="" id=""></textarea>
+        <input type="checkbox" name="terms" id="terms">
+        <label for="terms">Terms and conditions</label>
+    </form>
+</body>
+</html>
+
+<script>
+    const formEl = document.forms.feedback
+    // console.log(formEl.elements[0])
+    // console.log(formEl.elements[1])
+    // console.log(formEl.elements[2])
+    // console.log(formEl.elements[3])
+    // console.log(formEl.elements[4])
+    // console.log(formEl.elements[5])
+    // console.log(formEl.elements[6])
+    const { fullName, type } = formEl.elements;
+    console.log(type);
+    
+</script>
