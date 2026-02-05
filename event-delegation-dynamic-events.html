@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation and Dynamic events</title>
+    <style>
+        table{
+            border-spacing: 0;
+        }
+        table tr th{
+            background-color: royalblue;
+        }
+        tr.active{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <table border>
+        <tr>
+            <th>Name</th>
+            <th>Github</th>
+            <th>Contact details</th>
+        </tr>
+        <tr>
+            <td>Anbu</td>
+            <td>Github.com</td>
+            <td>https://fb.me/anburocky3</td>
+        </tr>
+        <tr>
+            <td>Trisha</td>
+            <td>Github.com</td>
+            <td>https://fb.me/anburocky3</td>
+        </tr>
+        <tr>
+            <td>Rolex</td>
+            <td>Github.com</td>
+            <td>https://fb.me/anburocky3</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<script>
+    //Event delegation is a JavaScript pattern where you attach one event listener to a parent element instead of many listeners to its children.
+    const table = document.querySelector("table");
+    let selectedId;
+    table.addEventListener("click", (event) => {
+        const target = event.target;
+        const closestTr = target.closest("tr");
+        if(target.tagName === "TH") return;
+        closestTr.classList.add("active")
+        if(selectedId != undefined) {
+            selectedId.classList.remove("active")
+        }
+        selectedId = closestTr;
+        console.log(selectedId);
+    })
+</script>
