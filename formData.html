@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FormData All Methods</title>
+
+<style>
+form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<form name="feedback" id="feedbackForm">
+    <input type="text" name="fullName" placeholder="Full Name">
+    <input type="email" name="email" placeholder="Email">
+
+    <label>
+        <input type="radio" name="type" value="html"> HTML
+    </label>
+
+    <label>
+        <input type="radio" name="type" value="css"> CSS
+    </label>
+
+    <label>
+        <input type="radio" name="type" value="javascript"> JavaScript
+    </label>
+
+    <textarea name="desc" placeholder="Feedback"></textarea>
+
+    <label>
+        <input type="checkbox" name="terms"> Accept Terms
+    </label>
+
+    <button>Submit</button>
+</form>
+
+<script>
+const form = document.getElementById("feedbackForm");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    // 1️⃣ Create FormData object
+    const fd = new FormData(form);
+
+    // 2️⃣ get() → get value of a field
+    console.log("Name:", fd.get("fullName"));
+
+    // 3️⃣ set() → change value of a field
+    fd.set("fullName", "Vijay Kumar");
+
+    // 4️⃣ append() → add new field
+    fd.append("country", "India");
+
+    // 5️⃣ has() → check if key exists
+    console.log("Has email?", fd.has("email"));
+
+    // 6️⃣ delete() → remove a field
+    fd.delete("desc");
+
+    // 7️⃣ keys() → get all keys
+    console.log("Keys:", [...fd.keys()]);
+
+    // 8️⃣ values() → get all values
+    console.log("Values:", [...fd.values()]);
+
+    // 9️⃣ entries() → get key-value pairs
+    console.log("Entries:", [...fd.entries()]);
+
+    // 🔟 forEach() → loop through FormData
+    fd.forEach((value, key) => {
+        console.log(key, "=", value);
+    });
+
+    // Convert FormData to normal JS object
+    const data = Object.fromEntries(fd.entries());
+    console.log("Final Object:", data);
+});
+</script>
+
+</body>
+</html>
